@@ -29,8 +29,8 @@ public class Executive extends StaffEmployee {
         //  regular employee payment plus a one-time bonus.
         //-----------------------------------------------------------------
         public double pay() {
-            double payment = super.pay() + bouns;
-            bouns = 0;
+            double payment = super.pay() + bonus;
+            bonus = 0;
             return payment;
         }
     }
