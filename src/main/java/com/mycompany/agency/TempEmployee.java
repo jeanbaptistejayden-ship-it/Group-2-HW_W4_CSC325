@@ -1,22 +1,18 @@
 package com.mycompany.agency;
 
-
-
     // TODO 1: Make TempEmploee a child of StaffEmploee
+    // FIXED "TempEmploee" typo
 
-public class TempEmploee 
-{
+public class TempEmployee extends StaffEmployee {
     private int hoursWorked;
 
     //-----------------------------------------------------------------
     //  Constructor: Sets up this hourly employee using the specified
     //  information.
     //-----------------------------------------------------------------
-    public TempEmploee(String eName, String eAddress, String ePhone,
-            String socSecNumber, double rate)
-    {
+    public TempEmployee(String eName, String eAddress, String ePhone,
+                        String socSecNumber, double rate) {
         super(eName, eAddress, ePhone, socSecNumber, rate);
-
         hoursWorked = 0;
     }
 
@@ -24,24 +20,26 @@ public class TempEmploee
     // TODO2: Adds the specified number of hours to this employee's
     //  accumulated hours.
     //-----------------------------------------------------------------
-    public void addHours(int moreHours)
-    {
-        
+    public void addHours(int moreHours) {
+        if (moreHours < 0) {
+            throw new IllegalArgumentException("Hours worked cannot be a negative number.");
+        }
+        hoursWorked += moreHours;
     }
 
     //-----------------------------------------------------------------
     // TODO3: Computes and returns the pay for this hourly employee.
     //-----------------------------------------------------------------
-    public double pay()
-    {
-
+    public double pay() {
+        double payment = hoursWorked * payRate;
+        hoursWorked = 0;
+        return payment;
     }
 
     //-----------------------------------------------------------------
     // TODO4: Returns information about this hourly employee as a string.
     //-----------------------------------------------------------------
-    public String toString()
-    {
-
+    public String toString() {
+        return super.toString() + " Hours worked: " + hoursWorked;
     }
 }

@@ -18,7 +18,7 @@ public class Staff
 
         ((Executive)staffList[0]).awardBonus(500.00);
 
-        ((TempEmploee)staffList[3]).addHours(40);
+        ((TempEmployee)staffList[3]).addHours(40);
     }
 
     //-----------------------------------------------------------------
